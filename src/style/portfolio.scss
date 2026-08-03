@@ -464,6 +464,39 @@ body {
 .portfolio-card-title { color: #fff; font-weight: 700; font-size: 0.95rem; }
 .portfolio-card-cat { color: #ff7a5c; font-size: 0.78rem; font-weight: 500; }
 
+/* Pagination */
+.portfolio-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+}
+
+.pag-btn {
+  min-width: 40px;
+  height: 40px;
+  padding: 0 0.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0;
+  box-shadow: none;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.pag-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--text); }
+.pag-btn:disabled { opacity: 0.3; cursor: default; }
+.pag-active {
+  background: var(--gradient);
+  border-color: transparent;
+  color: #fff;
+}
+.pag-active:hover { opacity: 0.9; }
+
 /* Lightbox */
 .lightbox {
   position: fixed;

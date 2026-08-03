@@ -22,11 +22,21 @@ const works = [
   { id: 12, src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345363/Gemini_Generated_Image_11f7dw11f7dw11f7_ilxk08.png",         cat: "Images IA",   title: "Gemini Art #2" },
 ];
 
+const PER_PAGE = 6;
+
 export default function Portfolio() {
   const [active, setActive] = useState("Tout");
+  const [page, setPage] = useState(1);
   const [lightbox, setLightbox] = useState<null | typeof works[0]>(null);
 
   const filtered = active === "Tout" ? works : works.filter((w) => w.cat === active);
+  const totalPages = Math.ceil(filtered.length / PER_PAGE);
+  const paginated = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE);
+
+  function handleFilter(cat: string) {
+    setActive(cat);
+    setPage(1);
+  }
 
   return (
     <section className="portfolio-section" id="portfolio">
@@ -49,7 +59,7 @@ export default function Portfolio() {
             <button
               key={cat}
               className={`filter-btn ${active === cat ? "filter-active" : ""}`}
-              onClick={() => setActive(cat)}
+              onClick={() => handleFilter(cat)}
             >
               {cat}
             </button>
@@ -60,7 +70,7 @@ export default function Portfolio() {
       {/* Grille */}
       <motion.div className="portfolio-grid" layout>
         <AnimatePresence mode="popLayout">
-          {filtered.map((item) => (
+          {paginated.map((item) => (
             <motion.div
               key={item.id}
               className="portfolio-card"
@@ -81,6 +91,35 @@ export default function Portfolio() {
           ))}
         </AnimatePresence>
       </motion.div>
+
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="portfolio-pagination">
+          <button
+            className="pag-btn"
+            onClick={() => setPage((p) => Math.max(1, p - 1))}
+            disabled={page === 1}
+          >
+            ←
+          </button>
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
+            <button
+              key={n}
+              className={`pag-btn${page === n ? " pag-active" : ""}`}
+              onClick={() => setPage(n)}
+            >
+              {n}
+            </button>
+          ))}
+          <button
+            className="pag-btn"
+            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+            disabled={page === totalPages}
+          >
+            →
+          </button>
+        </div>
+      )}
 
       {/* Lightbox */}
       <AnimatePresence>
