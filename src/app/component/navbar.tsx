@@ -14,7 +14,7 @@ const links = [
   { label: "Services",     href: "#services" },
   { label: "Processus",    href: "#process" },
   { label: "Témoignages",  href: "#temoignages" },
-  { label: "Contact",      href: "#contact" },
+
 ];
 
 export default function Navbar() {

@@ -6,7 +6,7 @@ import lere from "../../images/lere.png";
 
 export default function Hero() {
   return (
-    <section className="hero" id="hero">
+    <section className="hero " id="hero">
       <div className="orb orb-1" />
       <div className="orb orb-2" />
       <div className="orb orb-3" />
