@@ -31,7 +31,7 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.nav style={{ background: bg, borderBottomColor: borderColor }} className="navbar">
+      <motion.nav style={{ background: bg, borderBottomColor: borderColor }} className={`navbar${open ? " navbar--hidden" : ""}`}>
         <span className="nav-logo">
           W<span className="nav-dot">.</span>D<span className="nav-dot">.</span>
         </span>

@@ -13,15 +13,6 @@ export default function Hero() {
 
       {/* ── Texte gauche ── */}
       <div className="hero-content">
-        <motion.span
-          className="hero-badge"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
-          Disponible pour des collaborations
-        </motion.span>
-
         <h1 className="hero-title">
           <motion.span
             className="hero-word-line"
