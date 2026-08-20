@@ -19,7 +19,7 @@ const Multislide: React.FC<MultislideProps> = ({ topSliderImages, bottomSliderIm
     return (
       <div className="slide" key={key}>
         {item.type === 'video' ? (
-          <video src={item.src} autoPlay muted loop playsInline style={{ width: 100, height: 100, objectFit: 'cover', borderRadius: '10px' }} />
+          <video src={item.src} autoPlay muted loop playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px', background: 'black' }} />
         ) : (
           <Image src={item.src} alt={`Slide ${index + 1}`} loading="lazy" width={100} height={100}/>
         )}
