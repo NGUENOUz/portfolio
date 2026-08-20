@@ -3,8 +3,10 @@ import { motion } from "motion/react";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Contact() {
+  const { t } = useLanguage();
   return (
     <section className="contact-section" id="contact">
       <motion.div
@@ -14,9 +16,9 @@ export default function Contact() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <span className="section-tag">✦ Parlons-en</span>
-        <h2 className="section-title">Contact</h2>
-        <p className="section-sub">Une idée ? Un projet ? Je suis là.</p>
+        <span className="section-tag">{t("contact.tag")}</span>
+        <h2 className="section-title">{t("contact.title")}</h2>
+        <p className="section-sub">{t("contact.sub")}</p>
       </motion.div>
 
       <div className="contact-grid">
@@ -27,8 +29,8 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h3>Travaillons ensemble</h3>
-          <p>Que ce soit pour une collaboration, une commande de visuels ou une formation, n&apos;hésitez pas à me contacter.</p>
+          <h3>{t("contact.info.title")}</h3>
+          <p>{t("contact.info.desc")}</p>
 
           <div className="contact-links">
             <a href="https://wa.me/237678378976" className="contact-link" target="_blank" rel="noreferrer">
@@ -51,11 +53,11 @@ export default function Contact() {
           transition={{ duration: 0.6, delay: 0.15 }}
           onSubmit={(e) => e.preventDefault()}
         >
-          <input className="form-input" type="text" placeholder="Votre nom" required />
-          <input className="form-input" type="email" placeholder="Votre email" required />
-          <textarea className="form-input form-textarea" placeholder="Votre message" required />
+          <input className="form-input" type="text" placeholder={t("contact.form.name")} required />
+          <input className="form-input" type="email" placeholder={t("contact.form.email")} required />
+          <textarea className="form-input form-textarea" placeholder={t("contact.form.message")} required />
           <button type="submit" className="btn-primary" style={{ width: "100%", justifyContent: "center" }}>
-            Envoyer le message ✦
+            {t("contact.form.submit")}
           </button>
         </motion.form>
       </div>

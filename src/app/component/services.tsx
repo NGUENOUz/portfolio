@@ -7,53 +7,56 @@ import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import SchoolIcon from "@mui/icons-material/School";
 import GroupsIcon from "@mui/icons-material/Groups";
 import BackgroundPattern from "./background-pattern";
-
-const services = [
-  {
-    icon: <DevicesIcon />,
-    title: "Digitalisation complète",
-    desc: "Je transforme ton activité physique en business digital : création de tes plateformes sociales, site web ou application, identité visuelle et présence en ligne de A à Z.",
-    color: "#e8230a",
-    tag: "Clé en main",
-  },
-  {
-    icon: <AutoAwesomeIcon />,
-    title: "Création de contenu & IA",
-    desc: "Photos, vidéos, visuels IA, reels, stories — je crée du contenu qui capte l'attention et convertit. Maîtrise des meilleurs outils IA pour des résultats professionnels.",
-    color: "#ff6b35",
-    tag: "Créatif",
-  },
-  {
-    icon: <CampaignIcon />,
-    title: "Publicité & Campagnes",
-    desc: "Conception et gestion de campagnes publicitaires sur Meta, TikTok et Google. Ciblage précis, créatifs percutants et optimisation continue pour maximiser ton ROI.",
-    color: "#e8230a",
-    tag: "Performance",
-  },
-  {
-    icon: <TrendingUpIcon />,
-    title: "Stratégie Marketing & Closing",
-    desc: "Élaboration de stratégies marketing sur mesure, relance clients, scripts de closing, tunnels de vente et campagnes terrain pour transformer tes prospects en clients fidèles.",
-    color: "#ff6b35",
-    tag: "Revenus",
-  },
-  {
-    icon: <GroupsIcon />,
-    title: "Animation de communauté",
-    desc: "Gestion et animation de tes réseaux sociaux, création d'une communauté engagée, planification éditoriale et interaction avec ton audience pour bâtir une vraie relation.",
-    color: "#e8230a",
-    tag: "Engagement",
-  },
-  {
-    icon: <SchoolIcon />,
-    title: "Formation & Coaching",
-    desc: "Formations pratiques sur la création de contenu, l'IA, le marketing digital et la monétisation. Coaching individuel ou en groupe pour accélérer ta transformation.",
-    color: "#ff6b35",
-    tag: "Compétences",
-  },
-];
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Services() {
+  const { t } = useLanguage();
+
+  const services = [
+    {
+      icon: <DevicesIcon />,
+      title: t("services.s1.title"),
+      desc: t("services.s1.desc"),
+      color: "#e8230a",
+      tag: t("services.s1.tag"),
+    },
+    {
+      icon: <AutoAwesomeIcon />,
+      title: t("services.s2.title"),
+      desc: t("services.s2.desc"),
+      color: "#ff6b35",
+      tag: t("services.s2.tag"),
+    },
+    {
+      icon: <CampaignIcon />,
+      title: t("services.s3.title"),
+      desc: t("services.s3.desc"),
+      color: "#e8230a",
+      tag: t("services.s3.tag"),
+    },
+    {
+      icon: <TrendingUpIcon />,
+      title: t("services.s4.title"),
+      desc: t("services.s4.desc"),
+      color: "#ff6b35",
+      tag: t("services.s4.tag"),
+    },
+    {
+      icon: <GroupsIcon />,
+      title: t("services.s5.title"),
+      desc: t("services.s5.desc"),
+      color: "#e8230a",
+      tag: t("services.s5.tag"),
+    },
+    {
+      icon: <SchoolIcon />,
+      title: t("services.s6.title"),
+      desc: t("services.s6.desc"),
+      color: "#ff6b35",
+      tag: t("services.s6.tag"),
+    },
+  ];
+
   return (
     <section className="services-section" id="services" style={{ position: "relative" }}>
       <BackgroundPattern />
@@ -64,10 +67,10 @@ export default function Services() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <span className="section-tag">✦ Ce que je fais</span>
-        <h2 className="section-title">Services</h2>
+        <span className="section-tag">{t("services.tag")}</span>
+        <h2 className="section-title">{t("services.title")}</h2>
         <p className="section-sub">
-          De la stratégie à l&apos;exécution — je m&apos;occupe de tout pour que tu te concentres sur l&apos;essentiel
+          {t("services.subtitle")}
         </p>
       </motion.div>
 
@@ -101,8 +104,12 @@ export default function Services() {
         viewport={{ once: true }}
         transition={{ delay: 0.4 }}
       >
-        <p>Tu ne sais pas par où commencer ?</p>
-        <a href="#contact" className="btn-primary">Parlons de ton projet →</a>
+        <div className="services-cta-banner">
+          <p>{t("services.cta.text")}</p>
+          <a href="#contact" className="btn-primary" style={{ background: "var(--accent)" }}>
+            {t("services.cta.btn")}
+          </a>
+        </div>
       </motion.div>
     </section>
   );

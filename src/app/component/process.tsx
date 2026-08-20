@@ -1,50 +1,54 @@
 "use client";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-
-const steps = [
-  {
-    number: "01",
-    title: "Prise de contact",
-    desc: "Tu me contactes via le formulaire, WhatsApp ou les réseaux. On échange brièvement pour voir si on est alignés et si je peux vraiment t'aider.",
-    side: "left",
-  },
-  {
-    number: "02",
-    title: "Analyse de tes besoins",
-    desc: "On organise un appel dédié pour comprendre ton activité, tes objectifs, ta cible et tes contraintes. Rien n'est générique — tout part de toi.",
-    side: "right",
-  },
-  {
-    number: "03",
-    title: "Stratégie sur mesure",
-    desc: "Je conçois un plan d'action personnalisé : outils, calendrier, budget. Tu valides chaque étape avant qu'on avance.",
-    side: "left",
-  },
-  {
-    number: "04",
-    title: "Exécution & Production",
-    desc: "Je passe à l'action — création de contenu, plateformes, campagnes ou développement. Tu es informé à chaque étape clé.",
-    side: "right",
-  },
-  {
-    number: "05",
-    title: "Livraison & Formation",
-    desc: "Je te livre le travail finalisé et te forme à l'utiliser en autonomie. Pas de dépendance — tu dois maîtriser ce qu'on a construit.",
-    side: "left",
-  },
-  {
-    number: "06",
-    title: "Suivi & Optimisation",
-    desc: "Après la livraison, j'analyse les résultats, j'ajuste la stratégie et t'accompagne dans la durée. Ton succès est mon succès.",
-    side: "right",
-  },
-];
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Process() {
+  const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.8", "end 0.2"] });
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+  const steps = [
+    {
+      number: "01",
+      title: t("process.p1.title"),
+      desc: t("process.p1.desc"),
+      side: "left",
+    },
+    {
+      number: "02",
+      title: t("process.p2.title"),
+      desc: t("process.p2.desc"),
+      side: "right",
+    },
+    {
+      number: "03",
+      title: t("process.p3.title"),
+      desc: t("process.p3.desc"),
+      side: "left",
+    },
+    {
+      number: "04",
+      title: t("process.p4.title"),
+      desc: t("process.p4.desc"),
+      side: "right",
+    },
+    {
+      number: "05",
+      title: t("process.p5.title"),
+      desc: t("process.p5.desc"),
+      side: "left",
+    },
+    {
+      number: "06",
+      title: t("process.p6.title"),
+      desc: t("process.p6.desc"),
+      side: "right",
+    },
+  ];
+
+
 
   return (
     <section className="process-section" id="process" ref={ref}>
@@ -55,10 +59,10 @@ export default function Process() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <span className="section-tag">✦ Comment je travaille</span>
-        <h2 className="section-title">Mon processus</h2>
+        <span className="section-tag">{t("process.tag")}</span>
+        <h2 className="section-title">{t("process.title")}</h2>
         <p className="section-sub">
-          Centré sur tes besoins, orienté résultats — voici à quoi s&apos;attendre quand on travaille ensemble
+          {t("process.sub")}
         </p>
       </motion.div>
 
@@ -101,8 +105,8 @@ export default function Process() {
         viewport={{ once: true }}
         transition={{ delay: 0.3 }}
       >
-        <p className="process-cta-text">Prêt à démarrer ? La première étape ne coûte rien.</p>
-        <a href="#contact" className="btn-primary">Commencer maintenant</a>
+        <p className="process-cta-text">{t("process.cta.text")}</p>
+        <a href="#contact" className="btn-primary">{t("process.cta.btn")}</a>
       </motion.div>
     </section>
   );

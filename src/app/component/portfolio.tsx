@@ -5,6 +5,7 @@ import { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import ZoomInIcon from "@mui/icons-material/ZoomIn";
 import BackgroundPattern from "./background-pattern";
+import { useLanguage } from "../context/LanguageContext";
 
 const categories = ["Tout", "Images IA", "Vidéos", "Sites & Apps"];
 
@@ -30,6 +31,7 @@ const works = [
 const PER_PAGE = 6;
 
 export default function Portfolio() {
+  const { t } = useLanguage();
   const [active, setActive] = useState("Tout");
   const [page, setPage] = useState(1);
   const [lightbox, setLightbox] = useState<null | typeof works[0]>(null);
@@ -53,9 +55,9 @@ export default function Portfolio() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <span className="section-tag">✦ Mon travail</span>
-        <h2 className="section-title">Portfolio</h2>
-        <p className="section-sub">Des créations qui parlent d&apos;elles-mêmes</p>
+        <span className="section-tag">{t("portfolio.tag")}</span>
+        <h2 className="section-title">{t("portfolio.title")}</h2>
+        <p className="section-sub">{t("portfolio.sub")}</p>
       </motion.div>
 
       {/* Filtres — scrollable horizontalement sur mobile */}
@@ -67,7 +69,7 @@ export default function Portfolio() {
               className={`filter-btn ${active === cat ? "filter-active" : ""}`}
               onClick={() => handleFilter(cat)}
             >
-              {cat}
+              {t(`portfolio.cat.${cat}`)}
             </button>
           ))}
         </div>

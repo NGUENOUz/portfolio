@@ -36,16 +36,19 @@ export default function Toolbar({ isMobile = false }: { isMobile?: boolean }) {
     setLang(newLang);
   };
 
+  const { t } = useLanguage();
+
   const handleShare = async () => {
     const url = window.location.href;
     if (navigator.share) {
       try {
         await navigator.share({
           title: "Portfolio - Wilfried Dzomeu",
+          text: t("toolbar.share.text"),
           url: url,
         });
       } catch (err) {
-        console.error("Erreur de partage:", err);
+        console.error(t("toolbar.share.error"), err);
       }
     } else {
       navigator.clipboard.writeText(url);

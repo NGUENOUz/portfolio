@@ -16,10 +16,12 @@ import MyComponent from "./component/bd";
 import { AnimatedTestimonials } from "./component/temoignage";
 import { testimonials } from "./component/bd/temoigne";
 import Faq from "./component/faq";
+import { useLanguage } from "./context/LanguageContext";
 
 const PixelInitializer = dynamic(() => import("../app/lib/usePixel"), { ssr: false });
 
 export default function Home() {
+  const { t } = useLanguage();
   return (
     <main>
       <Navbar />
@@ -36,17 +38,17 @@ export default function Home() {
 
       <section className="temoignage-section" id="temoignages" style={{ overflow: "hidden" }}>
         <div className="section-header">
-          <span className="section-tag">✦ Ce qu&apos;ils disent</span>
-          <h2 className="section-title">Témoignages</h2>
-          <p className="section-sub">La satisfaction de mes clients parle pour moi</p>
+          <span className="section-tag">{t("testimonials.tag")}</span>
+          <h2 className="section-title">{t("testimonials.title")}</h2>
+          <p className="section-sub">{t("testimonials.sub")}</p>
         </div>
-        <AnimatedTestimonials testimonials={testimonials} />
+        <AnimatedTestimonials testimonials={testimonials.map((tItem, i) => ({ ...tItem, quote: t(`testimonials.t${i + 1}.quote`) }))} />
       </section>
 
       <section className="faq-section">
         <div className="section-header">
-          <span className="section-tag">✦ Questions fréquentes</span>
-          <h2 className="section-title">FAQ</h2>
+          <span className="section-tag">{t("faq.tag")}</span>
+          <h2 className="section-title">{t("faq.title")}</h2>
         </div>
         <Faq />
       </section>
@@ -57,7 +59,7 @@ export default function Home() {
         <span className="footer-logo">
           W<span style={{ color: "var(--accent)" }}>.</span>D<span style={{ color: "var(--accent)" }}>.</span>
         </span>
-        <span className="footer-copy">© 2025 W.D. | Wilfried Dzomeu — Tous droits réservés</span>
+        <span className="footer-copy">{t("footer.copy")}</span>
       </footer>
 
       <Toolbar />
