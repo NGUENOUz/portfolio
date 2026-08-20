@@ -6,6 +6,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import Toolbar from "./toolbar";
 
 const links = [
   { label: "Accueil", href: "#hero" },
@@ -168,6 +169,9 @@ export default function Navbar() {
                   </a>
                 </div>
               </div>
+
+              {/* Barre d'outils intégrée */}
+              <Toolbar isMobile={true} />
             </motion.div>
           </>
         )}

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import ZoomInIcon from "@mui/icons-material/ZoomIn";
+import BackgroundPattern from "./background-pattern";
 
 const categories = ["Tout", "Images IA", "Vidéos", "Sites & Apps"];
 
@@ -43,7 +44,8 @@ export default function Portfolio() {
   }
 
   return (
-    <section className="portfolio-section" id="portfolio">
+    <section className="portfolio-section" id="portfolio" style={{ position: "relative" }}>
+      <BackgroundPattern />
       <motion.div
         className="section-header"
         initial={{ opacity: 0, y: 30 }}

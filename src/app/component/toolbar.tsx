@@ -8,7 +8,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import CheckIcon from "@mui/icons-material/Check";
 import { motion } from "motion/react";
 
-export default function Toolbar() {
+export default function Toolbar({ isMobile = false }: { isMobile?: boolean }) {
   const [theme, setTheme] = useState("light");
   const [lang, setLang] = useState("FR");
   const [copied, setCopied] = useState(false);
@@ -54,11 +54,38 @@ export default function Toolbar() {
     }
   };
 
+  const containerClass = isMobile ? "toolbar-inline" : "toolbar-dock";
+  
+  // Désactiver l'animation Framer Motion si on est dans le drawer mobile
+  // car le drawer a déjà sa propre animation
+  if (isMobile) {
+    return (
+      <div className={containerClass}>
+        <button className="toolbar-btn" onClick={toggleTheme} aria-label="Toggle Theme">
+          {theme === "light" ? <DarkModeIcon fontSize="small" /> : <LightModeIcon fontSize="small" />}
+        </button>
+
+        <div className="toolbar-divider" />
+
+        <button className="toolbar-btn lang-btn" onClick={toggleLang} aria-label="Toggle Language">
+          <LanguageIcon fontSize="small" />
+          <span className="lang-text">{lang}</span>
+        </button>
+
+        <div className="toolbar-divider" />
+
+        <button className="toolbar-btn" onClick={handleShare} aria-label="Share">
+          {copied ? <CheckIcon fontSize="small" style={{ color: "var(--accent)" }} /> : <ShareIcon fontSize="small" />}
+        </button>
+      </div>
+    );
+  }
+
   return (
     <motion.div 
-      className="toolbar-dock"
-      initial={{ y: 100, opacity: 0, x: "-50%" }}
-      animate={{ y: 0, opacity: 1, x: "-50%" }}
+      className={containerClass}
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 1, type: "spring", stiffness: 100, damping: 20 }}
     >
       <button className="toolbar-btn" onClick={toggleTheme} aria-label="Toggle Theme">

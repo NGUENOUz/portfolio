@@ -6,6 +6,7 @@ import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import SchoolIcon from "@mui/icons-material/School";
 import GroupsIcon from "@mui/icons-material/Groups";
+import BackgroundPattern from "./background-pattern";
 
 const services = [
   {
@@ -54,7 +55,8 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="services-section" id="services">
+    <section className="services-section" id="services" style={{ position: "relative" }}>
+      <BackgroundPattern />
       <motion.div
         className="section-header"
         initial={{ opacity: 0, y: 30 }}
