@@ -1,7 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
@@ -15,14 +15,14 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
-  const links = [
+  const links = useMemo(() => [
     { label: t("nav.home"), href: "#hero" },
     { label: t("nav.portfolio"), href: "#portfolio" },
     { label: t("nav.about"), href: "#about" },
     { label: t("nav.services"), href: "#services" },
     { label: t("nav.process"), href: "#process" },
     { label: t("nav.testimonials"), href: "#temoignages" },
-  ];
+  ], [t]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -51,7 +51,7 @@ export default function Navbar() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [links]);
 
   // Bloquer le scroll body quand le menu est ouvert
   useEffect(() => {

@@ -19,14 +19,12 @@ export const useLanguage = () => useContext(LanguageContext);
 
 export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
   const [lang, setLangState] = useState("fr");
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const savedLang = localStorage.getItem("lang");
     if (savedLang && (savedLang === "fr" || savedLang === "en")) {
       setLangState(savedLang);
     }
-    setMounted(true);
   }, []);
 
   const setLang = (newLang: string) => {
