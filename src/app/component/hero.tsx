@@ -3,7 +3,6 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import wil from "../../images/wil-removebg-preview.png";
-import lere from "../../images/lere.png";
 
 export default function Hero() {
   return (

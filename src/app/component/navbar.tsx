@@ -1,5 +1,5 @@
 "use client";
-import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import CloseIcon from "@mui/icons-material/Close";
