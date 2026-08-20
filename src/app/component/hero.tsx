@@ -3,8 +3,10 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import wil from "../../images/wil-removebg-preview.png";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
   return (
     <section className="hero" id="hero">
       <div className="hero-content">
@@ -14,7 +16,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <span className="status-dot" /> Disponible pour un projet
+          <span className="status-dot" /> {t("nav.status")}
         </motion.div>
 
         <h1 className="hero-title">
@@ -24,7 +26,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, ease: "easeOut" }}
           >
-            Hello, je suis{" "}
+            {t("hero.hello")}{" "}
             <span className="hero-avatar">
               <Image src={wil} alt="Wilfried" width={48} height={48} className="hero-avatar-img" />
             </span>{" "}
@@ -50,7 +52,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9 }}
         >
-          Je conçois des stratégies, des marques et des expériences web qui font gagner du temps à tes utilisateurs et de l&apos;argent à ton entreprise.
+          {t("hero.desc")}
         </motion.p>
 
         <motion.div
@@ -59,8 +61,8 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1 }}
         >
-          <Link href="#contact" className="btn-primary">Réserver un appel</Link>
-          <Link href="#portfolio" className="btn-ghost">Voir mon travail</Link>
+          <Link href="#contact" className="btn-primary">{t("hero.cta.primary")}</Link>
+          <Link href="#portfolio" className="btn-ghost">{t("hero.cta.secondary")}</Link>
         </motion.div>
       </div>
 

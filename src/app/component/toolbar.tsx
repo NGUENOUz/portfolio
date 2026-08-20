@@ -7,10 +7,11 @@ import LanguageIcon from "@mui/icons-material/Language";
 import ShareIcon from "@mui/icons-material/Share";
 import CheckIcon from "@mui/icons-material/Check";
 import { motion } from "motion/react";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Toolbar({ isMobile = false }: { isMobile?: boolean }) {
   const [theme, setTheme] = useState("light");
-  const [lang, setLang] = useState("FR");
+  const { lang, setLang } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -31,9 +32,8 @@ export default function Toolbar({ isMobile = false }: { isMobile?: boolean }) {
   };
 
   const toggleLang = () => {
-    const newLang = lang === "FR" ? "EN" : "FR";
+    const newLang = lang === "fr" ? "en" : "fr";
     setLang(newLang);
-    // Placeholder : A brancher plus tard avec next-intl ou un dictionnaire
   };
 
   const handleShare = async () => {
@@ -69,7 +69,7 @@ export default function Toolbar({ isMobile = false }: { isMobile?: boolean }) {
 
         <button className="toolbar-btn lang-btn" onClick={toggleLang} aria-label="Toggle Language">
           <LanguageIcon fontSize="small" />
-          <span className="lang-text">{lang}</span>
+          <span className="lang-text">{lang.toUpperCase()}</span>
         </button>
 
         <div className="toolbar-divider" />
@@ -96,7 +96,7 @@ export default function Toolbar({ isMobile = false }: { isMobile?: boolean }) {
 
       <button className="toolbar-btn lang-btn" onClick={toggleLang} aria-label="Toggle Language">
         <LanguageIcon fontSize="small" />
-        <span className="lang-text">{lang}</span>
+        <span className="lang-text">{lang.toUpperCase()}</span>
       </button>
 
       <div className="toolbar-divider" />

@@ -7,21 +7,22 @@ import MenuIcon from "@mui/icons-material/Menu";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Toolbar from "./toolbar";
-
-const links = [
-  { label: "Accueil", href: "#hero" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "À propos", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Processus", href: "#process" },
-  { label: "Témoignages", href: "#temoignages" },
-
-];
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Navbar() {
+  const { t } = useLanguage();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+
+  const links = [
+    { label: t("nav.home"), href: "#hero" },
+    { label: t("nav.portfolio"), href: "#portfolio" },
+    { label: t("nav.about"), href: "#about" },
+    { label: t("nav.services"), href: "#services" },
+    { label: t("nav.process"), href: "#process" },
+    { label: t("nav.testimonials"), href: "#temoignages" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -93,7 +94,7 @@ export default function Navbar() {
           })}
         </ul>
 
-        <Link href="#contact" className="nav-cta">Me contacter</Link>
+        <Link href="#contact" className="nav-cta">{t("nav.cta")}</Link>
 
         <button className="nav-burger" onClick={() => setOpen(true)} aria-label="Ouvrir le menu">
           <MenuIcon style={{ color: "var(--text)", fontSize: "1.6rem" }} />
@@ -158,7 +159,7 @@ export default function Navbar() {
               {/* Footer drawer */}
               <div className="drawer-footer">
                 <Link href="#contact" className="btn-primary drawer-cta" onClick={() => setOpen(false)}>
-                  Me contacter
+                  {t("nav.cta")}
                 </Link>
                 <div className="drawer-socials">
                   <a href="https://wa.me/237678378976" target="_blank" rel="noreferrer" className="drawer-social">

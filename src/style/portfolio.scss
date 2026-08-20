@@ -65,11 +65,15 @@ body {
 
 .section-title {
   font-family: "Syne", sans-serif;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1.8rem, 8vw, 3.5rem);
   font-weight: 800;
   line-height: 1.1;
   color: var(--text);
   margin-bottom: 1rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
 }
 
 .section-sub {

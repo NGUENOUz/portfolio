@@ -5,6 +5,7 @@ import wil from "../../images/wil.png";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import PsychologyIcon from "@mui/icons-material/Psychology";
+import { useLanguage } from "../context/LanguageContext";
 
 const brands = [
   { name: "NovaTech", abbr: "NT" },
@@ -17,13 +18,15 @@ const brands = [
   { name: "GrowthCo", abbr: "GC" },
 ];
 
-const pillars = [
-  { icon: <RocketLaunchIcon />, label: "Digital Transformer", desc: "Je digitalise ton activité de A à Z" },
-  { icon: <AutoAwesomeIcon />, label: "AI Addict", desc: "J'utilise l'IA pour tout optimiser" },
-  { icon: <PsychologyIcon />, label: "Stratège", desc: "Créativité + données = résultats" },
-];
-
 export default function About() {
+  const { t } = useLanguage();
+
+  const pillars = [
+    { icon: <RocketLaunchIcon />, label: t("about.p1.label"), desc: t("about.p1.desc") },
+    { icon: <AutoAwesomeIcon />, label: t("about.p2.label"), desc: t("about.p2.desc") },
+    { icon: <PsychologyIcon />, label: t("about.p3.label"), desc: t("about.p3.desc") },
+  ];
+
   return (
     <>
       <section className="about-section" id="about">
@@ -39,7 +42,7 @@ export default function About() {
             <Image src={wil} alt="Wilfried Dzomeu" className="about-img" />
             <div className="about-badge-float">
               <span>52K+</span>
-              <span>Abonnés</span>
+              <span>{t("about.followers")}</span>
             </div>
           </motion.div>
 
@@ -50,16 +53,14 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15 }}
           >
-            <span className="section-tag">✦ À propos</span>
+            <span className="section-tag">{t("about.tag")}</span>
             <h2 className="section-title">
-              Wilfried Dzomeu
+              {t("about.title")}
             </h2>
 
             <p className="about-desc">
-              Digital Transformer, créateur de contenu et <strong style={{ color: "#f5f0f0" }}>AI Addict</strong> —
-              j&apos;utilise l&apos;intelligence artificielle au quotidien pour optimiser ma productivité,
-              tester de nouveaux outils et produire des résultats que la concurrence ne peut pas égaler.
-              Je transforme les activités en empires digitaux, de la stratégie à l&apos;exécution.
+              {t("about.desc1")} <strong style={{ color: "#f5f0f0" }}>{t("about.desc1.strong")}</strong>{" "}
+              {t("about.desc2")}
             </p>
 
             <div className="about-pillars">
@@ -75,7 +76,7 @@ export default function About() {
             </div>
 
             <a href="#contact" className="btn-primary" style={{ display: "inline-flex", marginTop: "2rem" }}>
-              Transformons ton business →
+              {t("about.btn")}
             </a>
           </motion.div>
         </div>
@@ -89,7 +90,7 @@ export default function About() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          Ils nous ont fait confiance
+          {t("about.brands.title")}
         </motion.p>
         <div className="brands-track-wrap">
           <div className="brands-track">

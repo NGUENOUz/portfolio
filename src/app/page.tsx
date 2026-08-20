@@ -34,7 +34,7 @@ export default function Home() {
       <Services />
       <Process />
 
-      <section className="temoignage-section" id="temoignages">
+      <section className="temoignage-section" id="temoignages" style={{ overflow: "hidden" }}>
         <div className="section-header">
           <span className="section-tag">✦ Ce qu&apos;ils disent</span>
           <h2 className="section-title">Témoignages</h2>
