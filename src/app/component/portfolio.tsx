@@ -8,18 +8,26 @@ import ZoomInIcon from "@mui/icons-material/ZoomIn";
 const categories = ["Tout", "Images IA", "Vidéos", "Designs", "Campagnes", "Sites & Apps"];
 
 const works = [
-  { id: 1,  src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345371/549619406_789954203418808_8478088820107281472_n_czshjs.jpg", cat: "Images IA",   title: "Création IA #1" },
-  { id: 2,  src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345370/Gemini_Generated_Image_xutu99xutu99xutu_ruojip.png",           cat: "Images IA",   title: "Gemini Art" },
-  { id: 3,  src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345370/550258272_788393083574920_1122837517657837576_n_sa7qlz.jpg",  cat: "Designs",     title: "Affiche #1" },
-  { id: 4,  src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345308/WhatsApp_Image_2025-09-23_at_16.18.56_h2ns4o.jpg",           cat: "Campagnes",   title: "Campagne #1" },
-  { id: 5,  src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345315/WhatsApp_Image_2025-09-23_at_16.18.54_qh9lld.jpg",           cat: "Designs",     title: "Design #2" },
-  { id: 6,  src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345317/WhatsApp_Image_2025-09-23_at_16.18.55_aqn0yt.jpg",           cat: "Images IA",   title: "Création IA #2" },
-  { id: 7,  src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345310/WhatsApp_Image_2025-09-24_at_17.59.41_qhyznw.jpg",           cat: "Vidéos",      title: "Contenu vidéo #1" },
-  { id: 8,  src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345306/WhatsApp_Image_2025-09-24_at_17.59.40_jwwi3k.jpg",           cat: "Images IA",   title: "Création IA #3" },
-  { id: 9,  src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345306/WhatsApp_Image_2025-09-24_at_17.59.43_tkat91.jpg",           cat: "Sites & Apps", title: "Projet web #1" },
-  { id: 10, src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345306/WhatsApp_Image_2025-09-27_at_14.02.09_ru0rtk.jpg",           cat: "Campagnes",   title: "Campagne #2" },
-  { id: 11, src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345365/550265587_788108650270030_4937257173747827666_n_g1tjhw.jpg", cat: "Vidéos",      title: "Contenu vidéo #2" },
-  { id: 12, src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345363/Gemini_Generated_Image_11f7dw11f7dw11f7_ilxk08.png",         cat: "Images IA",   title: "Gemini Art #2" },
+  { id: 1,  src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345371/549619406_789954203418808_8478088820107281472_n_czshjs.jpg", cat: "Images IA",   title: "Création IA #1", type: "image" },
+  { id: 2,  src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345370/Gemini_Generated_Image_xutu99xutu99xutu_ruojip.png",           cat: "Images IA",   title: "Gemini Art", type: "image" },
+  { id: 3,  src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345370/550258272_788393083574920_1122837517657837576_n_sa7qlz.jpg",  cat: "Designs",     title: "Affiche #1", type: "image" },
+  { id: 4,  src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345308/WhatsApp_Image_2025-09-23_at_16.18.56_h2ns4o.jpg",           cat: "Campagnes",   title: "Campagne #1", type: "image" },
+  { id: 5,  src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345315/WhatsApp_Image_2025-09-23_at_16.18.54_qh9lld.jpg",           cat: "Designs",     title: "Design #2", type: "image" },
+  { id: 6,  src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345317/WhatsApp_Image_2025-09-23_at_16.18.55_aqn0yt.jpg",           cat: "Images IA",   title: "Création IA #2", type: "image" },
+  { id: 7,  src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345310/WhatsApp_Image_2025-09-24_at_17.59.41_qhyznw.jpg",           cat: "Vidéos",      title: "Contenu vidéo #1", type: "image" },
+  { id: 8,  src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345306/WhatsApp_Image_2025-09-24_at_17.59.40_jwwi3k.jpg",           cat: "Images IA",   title: "Création IA #3", type: "image" },
+  { id: 9,  src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345306/WhatsApp_Image_2025-09-24_at_17.59.43_tkat91.jpg",           cat: "Sites & Apps", title: "Projet web #1", type: "image" },
+  { id: 10, src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345306/WhatsApp_Image_2025-09-27_at_14.02.09_ru0rtk.jpg",           cat: "Campagnes",   title: "Campagne #2", type: "image" },
+  { id: 11, src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345365/550265587_788108650270030_4937257173747827666_n_g1tjhw.jpg", cat: "Vidéos",      title: "Contenu vidéo #2", type: "image" },
+  { id: 12, src: "https://res.cloudinary.com/dsf8rehsq/image/upload/v1759345363/Gemini_Generated_Image_11f7dw11f7dw11f7_ilxk08.png",         cat: "Images IA",   title: "Gemini Art #2", type: "image" },
+  { id: 13, src: "https://res.cloudinary.com/dcsl6xhli/video/upload/v1787228544/vid5_rt7vts.mp4", cat: "Vidéos", title: "Vidéo #3", type: "video" },
+  { id: 14, src: "https://res.cloudinary.com/dcsl6xhli/video/upload/v1787228541/vid_1_beboqp.mp4", cat: "Vidéos", title: "Vidéo #4", type: "video" },
+  { id: 15, src: "https://res.cloudinary.com/dcsl6xhli/video/upload/v1787228540/vid9_nipmti.mp4", cat: "Vidéos", title: "Vidéo #5", type: "video" },
+  { id: 16, src: "https://res.cloudinary.com/dcsl6xhli/video/upload/v1787228537/vid7_dqa6wm.mp4", cat: "Vidéos", title: "Vidéo #6", type: "video" },
+  { id: 17, src: "https://res.cloudinary.com/dcsl6xhli/video/upload/v1787228606/vid10_zpzx4i.mp4", cat: "Vidéos", title: "Vidéo #7", type: "video" },
+  { id: 18, src: "https://res.cloudinary.com/dcsl6xhli/video/upload/v1787228557/vid4_mugknj.mp4", cat: "Vidéos", title: "Vidéo #8", type: "video" },
+  { id: 19, src: "https://res.cloudinary.com/dcsl6xhli/image/upload/v1786635097/ChatGPT_Image_Aug_13_2026_04_14_42_PM_cuumwi.png", cat: "Sites & Apps", title: "Site/App #2", type: "image" },
+  { id: 20, src: "https://res.cloudinary.com/dcsl6xhli/image/upload/v1787228767/ChatGPT_Image_Aug_16_2026_04_10_57_PM_jnwjhm.png", cat: "Sites & Apps", title: "Site/App #3", type: "image" },
 ];
 
 const PER_PAGE = 6;
@@ -81,7 +89,11 @@ export default function Portfolio() {
               transition={{ duration: 0.35 }}
               onClick={() => setLightbox(item)}
             >
-              <Image src={item.src} alt={item.title} fill className="portfolio-img" sizes="(max-width:768px) 50vw, 33vw" />
+              {item.type === "video" ? (
+                <video src={item.src} className="portfolio-img" muted loop playsInline autoPlay style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+              ) : (
+                <Image src={item.src} alt={item.title} fill className="portfolio-img" sizes="(max-width:768px) 50vw, 33vw" />
+              )}
               <div className="portfolio-overlay">
                 <ZoomInIcon className="zoom-icon" />
                 <span className="portfolio-card-title">{item.title}</span>
@@ -141,7 +153,11 @@ export default function Portfolio() {
               <button className="lightbox-close" onClick={() => setLightbox(null)}>
                 <CloseIcon />
               </button>
-              <Image src={lightbox.src} alt={lightbox.title} width={900} height={700} className="lightbox-img" />
+              {lightbox.type === "video" ? (
+                <video src={lightbox.src} className="lightbox-img" controls autoPlay style={{ maxHeight: '80vh', maxWidth: '100%', objectFit: 'contain' }} />
+              ) : (
+                <Image src={lightbox.src} alt={lightbox.title} width={900} height={700} className="lightbox-img" style={{ maxHeight: '80vh', objectFit: 'contain', width: 'auto', margin: '0 auto' }} />
+              )}
               <p className="lightbox-title">{lightbox.title}</p>
             </motion.div>
           </motion.div>

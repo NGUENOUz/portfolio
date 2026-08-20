@@ -8,12 +8,12 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
 const links = [
-  { label: "Accueil",      href: "#hero" },
-  { label: "Portfolio",    href: "#portfolio" },
-  { label: "À propos",     href: "#about" },
-  { label: "Services",     href: "#services" },
-  { label: "Processus",    href: "#process" },
-  { label: "Témoignages",  href: "#temoignages" },
+  { label: "Accueil", href: "#hero" },
+  { label: "Portfolio", href: "#portfolio" },
+  { label: "À propos", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Processus", href: "#process" },
+  { label: "Témoignages", href: "#temoignages" },
 
 ];
 
