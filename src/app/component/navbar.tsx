@@ -19,9 +19,37 @@ const links = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const { scrollY } = useScroll();
-  const bg = useTransform(scrollY, [0, 80], ["rgba(8,5,5,0)", "rgba(8,5,5,0.92)"]);
-  const borderColor = useTransform(scrollY, [0, 80], ["rgba(255,80,50,0)", "rgba(255,80,50,0.12)"]);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Détecter la section active
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -60% 0px" }
+    );
+
+    links.forEach((link) => {
+      const id = link.href.startsWith("#") ? link.href.substring(1) : link.href;
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   // Bloquer le scroll body quand le menu est ouvert
   useEffect(() => {
@@ -31,17 +59,37 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.nav style={{ background: bg, borderBottomColor: borderColor }} className={`navbar${open ? " navbar--hidden" : ""}`}>
+      <div className={`navbar-bg${open ? " navbar-bg--hidden" : ""}${scrolled ? " navbar-bg--scrolled" : ""}`} aria-hidden="true">
+        <span className="nav-logo">
+          W<span className="nav-dot">.</span>D<span className="nav-dot">.</span>
+        </span>
+        <ul className="nav-links">
+          {links.map((l) => (
+            <li key={l.href}>
+              <span className="nav-link">{l.label}</span>
+            </li>
+          ))}
+        </ul>
+        <span className="nav-cta">Me contacter</span>
+        <button className="nav-burger" tabIndex={-1}>
+          <MenuIcon style={{ fontSize: "1.6rem" }} />
+        </button>
+      </div>
+
+      <nav className={`navbar-content${open ? " navbar-content--hidden" : ""}${scrolled ? " navbar-content--scrolled" : ""}`}>
         <span className="nav-logo">
           W<span className="nav-dot">.</span>D<span className="nav-dot">.</span>
         </span>
 
         <ul className="nav-links">
-          {links.map((l) => (
-            <li key={l.href}>
-              <Link href={l.href} className="nav-link">{l.label}</Link>
-            </li>
-          ))}
+          {links.map((l) => {
+            const isActive = activeSection === (l.href.startsWith("#") ? l.href.substring(1) : l.href);
+            return (
+              <li key={l.href}>
+                <Link href={l.href} className={`nav-link ${isActive ? "active" : ""}`}>{l.label}</Link>
+              </li>
+            );
+          })}
         </ul>
 
         <Link href="#contact" className="nav-cta">Me contacter</Link>
@@ -49,7 +97,7 @@ export default function Navbar() {
         <button className="nav-burger" onClick={() => setOpen(true)} aria-label="Ouvrir le menu">
           <MenuIcon style={{ color: "var(--text)", fontSize: "1.6rem" }} />
         </button>
-      </motion.nav>
+      </nav>
 
       {/* ── Drawer mobile plein écran ── */}
       <AnimatePresence>
@@ -84,23 +132,26 @@ export default function Navbar() {
 
               {/* Links */}
               <nav className="drawer-links">
-                {links.map((l, i) => (
-                  <motion.div
-                    key={l.href}
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 + i * 0.06 }}
-                  >
-                    <Link
-                      href={l.href}
-                      className="drawer-link"
-                      onClick={() => setOpen(false)}
+                {links.map((l, i) => {
+                  const isActive = activeSection === (l.href.startsWith("#") ? l.href.substring(1) : l.href);
+                  return (
+                    <motion.div
+                      key={l.href}
+                      initial={{ opacity: 0, x: 30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.05 + i * 0.06 }}
                     >
-                      <span className="drawer-link-num">0{i + 1}</span>
-                      {l.label}
-                    </Link>
-                  </motion.div>
-                ))}
+                      <Link
+                        href={l.href}
+                        className={`drawer-link ${isActive ? "active" : ""}`}
+                        onClick={() => setOpen(false)}
+                      >
+                        <span className="drawer-link-num">0{i + 1}</span>
+                        {l.label}
+                      </Link>
+                    </motion.div>
+                  );
+                })}
               </nav>
 
               {/* Footer drawer */}

@@ -21,6 +21,7 @@ const works = [
   { id: 17, src: "https://res.cloudinary.com/dcsl6xhli/video/upload/v1787228606/vid10_zpzx4i.mp4", cat: "Vidéos", title: "Vidéo #5", type: "video" },
   { id: 18, src: "https://res.cloudinary.com/dcsl6xhli/video/upload/v1787228557/vid4_mugknj.mp4", cat: "Vidéos", title: "Vidéo #6", type: "video" },
   { id: 21, src: "https://res.cloudinary.com/dcsl6xhli/video/upload/v1787230678/peau_douce_ixtihc.mp4", cat: "Vidéos", title: "Vidéo #7", type: "video" },
+  { id: 22, src: "https://res.cloudinary.com/dcsl6xhli/video/upload/v1787232080/vid_chips_blhcxk.mp4", cat: "Vidéos", title: "Vidéo #8", type: "video" },
   { id: 19, src: "https://res.cloudinary.com/dcsl6xhli/image/upload/v1786635097/ChatGPT_Image_Aug_13_2026_04_14_42_PM_cuumwi.png", cat: "Sites & Apps", title: "Site/App #2", type: "image" },
   { id: 20, src: "https://res.cloudinary.com/dcsl6xhli/image/upload/v1787228767/ChatGPT_Image_Aug_16_2026_04_10_57_PM_jnwjhm.png", cat: "Sites & Apps", title: "Site/App #3", type: "image" },
 ];

@@ -2,34 +2,47 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
+import wil from "../../images/wil-removebg-preview.png";
 import lere from "../../images/lere.png";
 
 export default function Hero() {
   return (
-    <section className="hero " id="hero">
-      <div className="orb orb-1" />
-      <div className="orb orb-2" />
-      <div className="orb orb-3" />
-
-      {/* ── Texte gauche ── */}
+    <section className="hero" id="hero">
       <div className="hero-content">
+        <motion.div
+          className="hero-badge"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <span className="status-dot" /> Disponible pour un projet
+        </motion.div>
+
         <h1 className="hero-title">
-          <motion.span
+          <motion.div
             className="hero-word-line"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, ease: "easeOut" }}
           >
+            Hello, je suis{" "}
+            <span className="hero-avatar">
+              <Image src={wil} alt="Wilfried" width={48} height={48} className="hero-avatar-img" />
+            </span>{" "}
+            WILFRIED
+          </motion.div>
+          {/* <div className="hero-word-line">
             Digital Transformer
-          </motion.span>
-          <motion.span
-            className="hero-word-line gradient-text"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.65, ease: "easeOut" }}
+          </div> */}
+          {/* <div
+            className="hero-word-line text-muted"
+            style={{ color: "var(--muted)", fontWeight: 500 }}
           >
-            &amp; Créateur
-          </motion.span>
+            qui transforme tes problèmes
+          </div> */}
+          {/* <div className="hero-word-line">
+            en <span style={{ color: "var(--text)", marginLeft: "8px" }}>solutions digitales.</span>
+          </div> */}
         </h1>
 
         <motion.p
@@ -38,9 +51,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9 }}
         >
-          Je transforme ton activité en empire digital — présence sociale,
-          contenu viral, site web, publicités, stratégie marketing et formation.
-          Tout ce qu&apos;il faut pour <strong>dominer ton marché</strong>.
+          Je conçois des stratégies, des marques et des expériences web qui font gagner du temps à tes utilisateurs et de l&apos;argent à ton entreprise.
         </motion.p>
 
         <motion.div
@@ -49,47 +60,20 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1 }}
         >
-          <Link href="#portfolio" className="btn-primary">Voir mon travail</Link>
-          <Link href="#contact" className="btn-ghost">Travailler avec moi</Link>
-        </motion.div>
-
-        <motion.div
-          className="hero-stats"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.3 }}
-        >
-          {[
-            { value: "52K+", label: "Abonnés" },
-            { value: "100+", label: "Clients transformés" },
-            { value: "5+", label: "Services" },
-          ].map((s) => (
-            <div key={s.label} className="hero-stat">
-              <span className="stat-value">{s.value}</span>
-              <span className="stat-label">{s.label}</span>
-            </div>
-          ))}
+          <Link href="#contact" className="btn-primary">Réserver un appel</Link>
+          <Link href="#portfolio" className="btn-ghost">Voir mon travail</Link>
         </motion.div>
       </div>
 
-      {/* ── Photo droite ── */}
       <motion.div
         className="hero-photo-wrap"
         initial={{ opacity: 0, x: 60 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
       >
-        <div className="hero-photo-glow" />
-        <Image src={lere} alt="Dreno — Wilfried Dzomeu" className="hero-photo" priority />
-        <span className="hero-photo-tag">Digital Transformer</span>
-      </motion.div>
-
-      <motion.div
-        className="hero-scroll"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 1.8 }}
-      >
-        <span>↓</span>
+        <div className="hero-photo-container">
+          <Image src={wil} alt="Wilfried Dzomeu" className="hero-photo-main" priority />
+        </div>
       </motion.div>
     </section>
   );

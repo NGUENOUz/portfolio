@@ -11,6 +11,7 @@ import About from "./component/about";
 import Services from "./component/services";
 import Process from "./component/process";
 import Contact from "./component/contact";
+import Toolbar from "./component/toolbar";
 import MyComponent from "./component/bd";
 import { AnimatedTestimonials } from "./component/temoignage";
 import { testimonials } from "./component/bd/temoigne";
@@ -39,7 +40,7 @@ export default function Home() {
           <h2 className="section-title">Témoignages</h2>
           <p className="section-sub">La satisfaction de mes clients parle pour moi</p>
         </div>
-        <AnimatedTestimonials testimonials={testimonials} autoplay={true} />
+        <AnimatedTestimonials testimonials={testimonials} />
       </section>
 
       <section className="faq-section">
@@ -59,6 +60,7 @@ export default function Home() {
         <span className="footer-copy">© 2025 W.D. | Wilfried Dzomeu — Tous droits réservés</span>
       </footer>
 
+      <Toolbar />
       <PixelInitializer />
     </main>
   );
