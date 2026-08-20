@@ -117,7 +117,6 @@ export const translations: Record<string, Record<string, string>> = {
     "contact.tag": "✦ Parlons-en",
     "contact.title": "Contact",
     "contact.sub": "Une idée ? Un projet ? Je suis là.",
-    "contact.sub": "Prêt à donner vie à ton idée ? Laisse-moi un message.",
     "contact.info.title": "Travaillons ensemble",
     "contact.info.desc": "Que ce soit pour une collaboration, une commande de visuels ou une formation, n'hésitez pas à me contacter.",
     "contact.form.name": "Ton nom",
