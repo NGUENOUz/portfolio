@@ -6,6 +6,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const links = [
   { label: "Accueil", href: "#hero" },
@@ -109,11 +110,11 @@ export default function Navbar() {
                   Me contacter
                 </Link>
                 <div className="drawer-socials">
-                  <a href="https://wa.me/237XXXXXXXXX" target="_blank" rel="noreferrer" className="drawer-social">
+                  <a href="https://wa.me/237678378976" target="_blank" rel="noreferrer" className="drawer-social">
                     <WhatsAppIcon />
                   </a>
-                  <a href="https://instagram.com/dreno" target="_blank" rel="noreferrer" className="drawer-social">
-                    <InstagramIcon />
+                  <a href="https://www.linkedin.com/in/wilfrieddzomeu/?skipRedirect=true" target="_blank" rel="noreferrer" className="drawer-social">
+                    <LinkedInIcon />
                   </a>
                 </div>
               </div>

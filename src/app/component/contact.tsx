@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export default function Contact() {
   return (
@@ -31,14 +32,14 @@ export default function Contact() {
           <p>Que ce soit pour une collaboration, une commande de visuels ou une formation, n&apos;hésitez pas à me contacter.</p>
 
           <div className="contact-links">
-            <a href="https://wa.me/237XXXXXXXXX" className="contact-link" target="_blank" rel="noreferrer">
+            <a href="https://wa.me/237678378976" className="contact-link" target="_blank" rel="noreferrer">
               <WhatsAppIcon /> WhatsApp
             </a>
-            <a href="mailto:contact@dreno.com" className="contact-link">
+            <a href="mailto:wilfrieddzomeu.ca@gmail.com" className="contact-link">
               <EmailIcon /> Email
             </a>
-            <a href="https://instagram.com/dreno" className="contact-link" target="_blank" rel="noreferrer">
-              <InstagramIcon /> Instagram
+            <a href="https://www.linkedin.com/in/wilfrieddzomeu/?skipRedirect=true" className="contact-link" target="_blank" rel="noreferrer">
+              <LinkedInIcon /> LinkedIn
             </a>
           </div>
         </motion.div>
